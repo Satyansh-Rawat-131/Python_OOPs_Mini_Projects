@@ -8,6 +8,19 @@ class Book:
 
     def __str__(self):
         return f"title : {self.title} \nauthor : {self.author} \nisbn : {self.isbn} \nborrowed : {"yes" if self.is_borrowed else "no"}"
+    
+
+class Lib:
+
+    def __dict__(Self):
+        pass
+
+    def __init__(self):
+        self.books = []
+
+    def add_book(self , book):
+        self.books.append(book)
+        print(f"book title : {book.title} added to the lib")
 
 
 book1 = Book("Game Of Thrones" , "George R.R. Martin" , "123456789" )
