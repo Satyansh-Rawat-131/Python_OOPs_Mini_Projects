@@ -17,6 +17,7 @@ class Lib:
 
     def __init__(self):
         self.books = []
+        self.users = {}
 
     def add_book(self , book):
         self.books.append(book)
@@ -28,6 +29,25 @@ class Lib:
             print("no books in the library \n")
         for book in self.books:
             print(book)
+
+    def add_user(self , user):
+        if(user.user_id in self.users):
+            print(f"User Id {user.user_id} already exists")
+            return
+        else:
+            self.users[user.user_id] = user
+            print(f"User {user.name} added to the database")
+
+
+class User:
+    
+    def __init__(self , user_id , name , email):
+        self.user_id = user_id
+        self.name = name
+        self.email = email
+
+    def __str__(self):
+        return f"User Id : {self.user_id} , Name : {self.name} , Email : {self.email}"
 
 lib1 = Lib()
 
@@ -43,6 +63,8 @@ print("\n")
 
 lib1.add_book(book1)
 lib1.add_book(Book("One Piece" , "Eiichiro Oda" , "000000001"))
+print("\n")
 
+lib1.add_user(User("001" , "Parth Rawat" , "yourGrace@gmail.com"))
 
 lib1.list_books()
